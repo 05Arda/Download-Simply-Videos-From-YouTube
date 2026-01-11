@@ -13,9 +13,6 @@ Originally based on a simple script, this project has been **fully refactored in
 - **Smart Queue System**  
   Add multiple videos to a list and download them **sequentially** automatically.
 
-- **Drag & Drop Sorting**  
-  Easily reorder your download queue by dragging rows (enabled when idle).
-
 - **Live Fetching & Caching**  
   Automatically fetches video titles, thumbnails, and available formats.  
   Cached data prevents redundant network requests.
@@ -179,7 +176,7 @@ This project is a **heavily engineered fork** based on the original script by
 - Migrated from single-script to **modular package architecture**
 - Implemented **PyQt6 GUI** with multithreading
 - Added **Queue Management System**
-- Integrated **Caching** and **Drag & Drop** features
+- Integrated **Caching** feature
 - Added full **CLI support**
 
 Contributions are welcome.  
