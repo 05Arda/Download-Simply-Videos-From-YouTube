@@ -1,0 +1,3 @@
+[console_scripts]
+ytdownload = main:main
+

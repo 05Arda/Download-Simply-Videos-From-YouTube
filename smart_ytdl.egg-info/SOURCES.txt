@@ -1,0 +1,14 @@
+license.md
+main.py
+setup.py
+core/__init__.py
+core/cleaner.py
+core/cli.py
+core/downloader.py
+core/workers.py
+smart_ytdl.egg-info/PKG-INFO
+smart_ytdl.egg-info/SOURCES.txt
+smart_ytdl.egg-info/dependency_links.txt
+smart_ytdl.egg-info/entry_points.txt
+smart_ytdl.egg-info/requires.txt
+smart_ytdl.egg-info/top_level.txt
