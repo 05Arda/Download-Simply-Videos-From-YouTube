@@ -1,140 +1,197 @@
-📥 SmartYTDL - Advanced YouTube Downloader
+# 📥 SmartYTDL – Advanced YouTube Downloader
 
-SmartYTDL is a powerful, modular, and user-friendly YouTube downloader built with Python and PyQt6.
+**SmartYTDL** is a powerful, modular, and user-friendly **YouTube downloader** built with **Python** and **PyQt6**.
 
-Originally based on a simple script, this project has been completely refactored into a professional engineering project featuring a modern Graphical User Interface (GUI) with a queue management system, as well as a robust Command Line Interface (CLI).
+Originally based on a simple script, this project has been **fully refactored into a professional engineering project**, featuring a modern **Graphical User Interface (GUI)**, a robust **Command Line Interface (CLI)**, and a smart **queue-based download system**.
 
-✨ Key Features
+---
 
-🖥️ Graphical User Interface (GUI)
+## ✨ Key Features
 
-Smart Queue System: Add multiple videos to a list and download them sequentially automatically.
+### 🖥️ Graphical User Interface (GUI)
 
-Drag & Drop Sorting: Easily reorder your download queue by dragging rows (enabled when idle).
+- **Smart Queue System**  
+  Add multiple videos to a list and download them **sequentially** automatically.
 
-Live Fetching & Caching: Automatically fetches video titles, thumbnails, and available formats. Caches data to prevent redundant network requests.
+- **Drag & Drop Sorting**  
+  Easily reorder your download queue by dragging rows (enabled when idle).
 
-Advanced Format Selection:
+- **Live Fetching & Caching**  
+  Automatically fetches video titles, thumbnails, and available formats.  
+  Cached data prevents redundant network requests.
 
-Standard: Video + Audio (1080p, 720p, etc.)
+- **Advanced Format Selection**
+  - **Standard**: Video + Audio (1080p, 720p, etc.)
+  - **Video Only**: Download video stream only (silent)
+  - **Audio Only**: Extract high-quality MP3
 
-Video Only: Download video stream only (silent).
+- **Visual Feedback**
+  - Indeterminate progress bars while fetching metadata
+  - Detailed progress bars during downloading
 
-Audio Only: Extract high-quality MP3.
+- **Safety Locks**
+  - Prevents invalid inputs
+  - Locks critical UI elements during processing to prevent errors
 
-Visual Feedback: Indeterminate progress bars for fetching and detailed progress bars for downloading.
+---
 
-Safety Locks: Prevents invalid inputs and locks critical UI elements during processing to prevent errors.
+### 💻 Command Line Interface (CLI)
 
-💻 Command Line Interface (CLI)
+- **Instant Access**  
+  Run `ytdownload` from anywhere in your terminal.
 
-Instant Access: Run ytdownload from anywhere in your terminal.
+- **Headless Operation**  
+  Download videos without opening the GUI.
 
-Headless Operation: Download videos without opening the window.
+- **Utility Tools**
+  - Built-in cleaner to wipe the downloads folder
 
-Utility Tools: Includes a built-in cleaner to wipe the downloads folder.
+---
 
-⚙️ Prerequisites
+## ⚙️ Prerequisites
 
-Python 3.10 or higher.
+- **Python 3.10 or higher**
+- **FFmpeg** (required for merging video and audio streams)
 
-FFmpeg: Essential for merging video and audio streams.
+### FFmpeg Installation
 
-Windows: Download ffmpeg.exe and place it in the project folder or add it to System PATH.
+#### Windows
+- Download `ffmpeg.exe`
+- Place it in the project folder **or**
+- Add it to your **System PATH**
 
-macOS: brew install ffmpeg
+#### macOS
+```bash
+brew install ffmpeg
+```
 
-Linux: sudo apt install ffmpeg
+#### Linux
+```bash
+sudo apt install ffmpeg
+```
 
-📦 Installation
+---
 
-Follow these steps to set up the project in Developer Mode:
+## 📦 Installation (Developer Mode)
 
-Clone the Repository:
+### Clone the Repository
 
-git clone [https://github.com/YOUR_USERNAME/SmartYTDL.git](https://github.com/YOUR_USERNAME/SmartYTDL.git)
+```bash
+git clone https://github.com/YOUR_USERNAME/SmartYTDL.git
 cd SmartYTDL
+```
 
-Install Dependencies & The App:
-This command installs required libraries (PyQt6, yt-dlp) and links the ytdownload command to your system.
+### Install Dependencies & Application
 
+This command installs required libraries (`PyQt6`, `yt-dlp`) and links the  
+`ytdownload` command to your system.
+
+```bash
 pip install -e .
+```
 
-🚀 Usage
+---
 
-You can use SmartYTDL in two modes:
+## 🚀 Usage
 
-1. GUI Mode (Visual Interface)
+SmartYTDL can be used in **two modes**.
 
-Simply type the command in your terminal:
+---
 
+### 1️⃣ GUI Mode (Visual Interface)
+
+Launch the GUI by running:
+
+```bash
 ytdownload
+```
 
-Step 1: Paste a YouTube link.
+**Steps:**
 
-Step 2: Wait for the auto-fetch to show the title and thumbnail.
+1. Paste a YouTube link  
+2. Wait for auto-fetch to display the title and thumbnail  
+3. Select quality and click **Add to Queue**  
+4. Repeat for other videos  
+5. Click **🚀 Start All Downloads**
 
-Step 3: Select quality and click "Add to Queue".
+---
 
-Step 4: Repeat for other videos, then click "🚀 Start All Downloads".
+### 2️⃣ CLI Mode (Terminal)
 
-2. CLI Mode (Terminal)
+Download videos directly from the command line without opening the interface.
 
-Download directly from the command line without opening the interface:
+#### Download Best Quality (Video + Audio)
 
-Download Best Quality (Video+Audio):
+```bash
+ytdownload https://www.youtube.com/watch?v=VIDEO_ID
+```
 
-ytdownload [https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=VIDEO_ID)
+#### Download Audio Only (MP3)
 
-Download Audio Only (MP3):
+```bash
+ytdownload https://www.youtube.com/watch?v=VIDEO_ID -a
+```
 
-ytdownload [https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=VIDEO_ID) -a
+#### Download Specific Quality (e.g. 4K / 2160p)
 
-Download Specific Quality (e.g., 4K/2160p):
+```bash
+ytdownload https://www.youtube.com/watch?v=VIDEO_ID -q 2160
+```
 
-ytdownload [https://www.youtube.com/watch?v=VIDEO_ID](https://www.youtube.com/watch?v=VIDEO_ID) -q 2160
+#### Clear Downloads Folder
 
-Clear Downloads Folder:
-
+```bash
 ytdownload --clear
+```
 
-🏗️ Project Architecture
+---
 
-This project follows a modular Object-Oriented architecture, separating concerns for maintainability and scalability:
+## 🏗️ Project Architecture
 
+SmartYTDL follows a **modular, Object-Oriented architecture**, separating concerns for maintainability and scalability.
+
+```text
 SmartYTDL/
 │
-├── core/ # Backend Logic
-│ ├── downloader.py # Background worker for downloading (Threading)
-│ ├── workers.py # Background worker for fetching metadata
-│ ├── cli.py # Logic for Command Line Interface
-│ └── cleaner.py # Utility for file management
+├── core/                  # Backend Logic
+│   ├── downloader.py      # Background worker for downloading (threading)
+│   ├── workers.py         # Background workers for metadata fetching
+│   ├── cli.py             # Command Line Interface logic
+│   └── cleaner.py         # File management utilities
 │
-├── ui/ # Frontend Logic
-│ └── main_window.py # PyQt6 Layouts, Signals, and Slots
+├── ui/                    # Frontend Logic
+│   └── main_window.py     # PyQt6 layouts, signals, and slots
 │
-├── downloads/ # Default download directory
-├── main.py # Application Router (Entry Point)
-└── setup.py # Installation script
+├── downloads/             # Default download directory
+├── main.py                # Application router (entry point)
+└── setup.py               # Installation and packaging script
+```
 
-🤝 Contributing & Credits
+---
 
-This project is a heavily engineered fork based on the original script by Pierre-Henry Soria.
+## 🤝 Contributing & Credits
 
-Major improvements in this fork:
+This project is a **heavily engineered fork** based on the original script by  
+**Pierre-Henry Soria**.
 
-Migrated from single-script to Modular Package Architecture.
+### Major Improvements in This Fork
 
-Implemented PyQt6 GUI with multithreading.
+- Migrated from single-script to **modular package architecture**
+- Implemented **PyQt6 GUI** with multithreading
+- Added **Queue Management System**
+- Integrated **Caching** and **Drag & Drop** features
+- Added full **CLI support**
 
-Added Queue Management System.
+Contributions are welcome.  
+Feel free to fork the repository and submit Pull Requests.
 
-Integrated Caching and Drag & Drop features.
+---
 
-Feel free to fork and submit Pull Requests!
+## ⚖️ License
 
-⚖️ License
+Distributed under the **MIT License**.  
+See the `LICENSE` file for more information.
 
-Distributed under the MIT License. See LICENSE for more information.
+---
 
-Developed with ❤️ using Python & PyQt6
+Developed with ❤️ using **Python & PyQt6**
